@@ -1,0 +1,36 @@
+flags;
+
+' ' if non-negative, add one space (ex. '% d')
+	if numer after, length and add space //lo fa ugaule
+	only numbers
+'+' if non-negative, add one plus sign (ex. '%+d')
+	A + overrides a space if both are used
+'#' if non-zero add 0x or 0X for x and X
+
+'-'	add after n space
+'0'     padding with 0 until reach length
+'.*'	s - string length
+	iduxX- if less, zero padding
+	p no
+	if .* deve esserci lettera
+
+num	min len of string if strnbr, fill with space (if 0flag fill with 0)
+
+conversions:
+c	single char
+s	string
+p	void * pointer argument in hex
+d	decimal (base 10)
+i	int (base 10)
+u	unsigned deciam (base 10)
+x	number in hex
+X	number in HEX
+%	print %
+
+
+what they take
+p	'-'
+c	'-'
+s	'-' '.' '.-' la precisione e' quanti byte della str stampare
+di      '-' '.' '0' '+' ' '
+
