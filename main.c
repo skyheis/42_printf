@@ -6,12 +6,18 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:25:21 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/17 18:09:45 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/18 22:54:32 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include <stdio.h>
+
+int	main(void)
+{
+	printf("%i\n", ft_pcfinded("%10 .197x  "));
+	//printf("printf %10.197i  ", 10 );
+}
 
 // main printf
 /*int	main(void)
@@ -23,8 +29,21 @@
 	ft_printf("", );
 }*/
 
+
+// main checkstr
+/*int	main(void)
+{
+	printf("%i \n", ft_checkstrpc("% -mc"));
+	printf("%i \n", ft_checkstrpc("%+010 -12121.0001090s"));
+	printf("%i \n", ft_checkstrpc("%+ -.100 s"));
+	printf("%i \n", ft_checkstrpc("%12212.100s"));
+	printf("%i \n", ft_checkstrpc("% -X"));
+	printf("%i \n", ft_checkstrpc("%1112231312d"));
+}*/
+
+
 // main struct
-void	ft_svarprint(t_varpc	*lol)
+/*void	ft_svarprint(t_varpc	*lol)
 {
 	printf("char %c\n", lol->ascii);
 	printf("len  %i\n", lol->length);
@@ -48,4 +67,4 @@ int	main(void)
 	lol->flag_plus = 1;
 	ft_checkrulesconflict(lol);
 	ft_svarprint(lol);
-}
+}*/

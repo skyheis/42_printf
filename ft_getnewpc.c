@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_struct.c                                        :+:      :+:    :+:   */
+/*   ft_getnewpc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 16:51:14 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/18 21:52:37 by ggiannit         ###   ########.fr       */
+/*   Created: 2022/10/18 20:39:14 by ggiannit          #+#    #+#             */
+/*   Updated: 2022/10/18 22:24:37 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-t_varpc	*ft_svarnew(char ascii)
+int	ft_pcfinded(char *pc)
 {
-	t_varpc	*new;
+	char	ascii;
+	t_varpc	*svar;
 	
-	new = malloc(sizeof(t_varpc));
-	if (!new)
-		return (NULL);
-	new->ascii = ascii;	
-	new->length = 0;
-	new->prec = -1;
-	new->flag_32 = 0;
-	new->flag_plus = 0;
-	new->flag_sharp = 0;
-	new->flag_dash = 0;
-	new->flag_zero = 0;
-	return (new);
-}
-
-void	ft_svardel(t_varpc *svar)
-{
-	free(svar);
+	ascii = ft_checkstrpc_endok(pc);
+	printf("ascii is %c\n", ascii);
+	if (ascii)
+	{
+		svar = ft_svarnew(ascii);
+		printf("pc is '%s'\n", pc);
+		if (!svar)
+			return (0);
+		if (ft_checkstrpc_gook(pc, svar))
+			return (1);
+		else
+		{
+			printf("OPS\n");
+			ft_svardel(svar);
+		}
+	}
+	return (0);
 }

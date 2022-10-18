@@ -28,9 +28,15 @@ X	number in HEX
 %	print %
 
 
+def length == length MINIMA
+' ' '+' '-' '0' devono stare prima di length/prec
+prec sempre ultima
+
 what they take
 p	'-'
 c	'-'
 s	'-' '.' '.-' la precisione e' quanti byte della str stampare
-di      '-' '.' '0' '+' ' '
-
+di      '-' '.' '0' '+' ' '  
+	combo ' ' o '+' ovunque
+	
+	
