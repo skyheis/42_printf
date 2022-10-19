@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:25:21 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/18 22:54:32 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/19 22:38:25 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 
 int	main(void)
 {
-	printf("%i\n", ft_pcfinded("%10 .197x  "));
+	printf("'%s'\n", ft_testino("%-3.0s"));
+	printf("'%-0.0s'\n", "abcdef ghij");
+	//printf("%i\n", ft_pcfinded("% +0-11110.11231x  "));
+	//printf("'%-10.03s'  ", "abcdefghijk" );
 	//printf("printf %10.197i  ", 10 );
 }
 

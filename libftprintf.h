@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:29:39 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/18 21:58:25 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/19 21:37:01 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct s_varpc
 {
 	char	ascii;
 	size_t	length;
-	size_t	prec;
+	long long int	prec;
 	int	flag_32;
 	int	flag_plus;
 	int	flag_sharp;
@@ -34,11 +34,17 @@ t_varpc	*ft_svarnew(char ascii);
 void	ft_svardel(t_varpc *svar);
 size_t	ft_atoi_custom(const char *pc);
 int	ft_checkdoubleflag(char pcv, t_varpc *svar);
-int	ft_checkprecision(char *pc, t_varpc *svar);
+int	ft_checkprecision(char **pc, t_varpc *svar);
 int	ft_checkstrpc_gook(char *pc, t_varpc *svar);
 char	ft_checkstrpc_endok(char *pc);
-int	ft_pcfinded(char *pc);
+t_varpc	*ft_pcfinded(char *pc);
+void	ft_fill_c(t_varpc *svar, char c_var, char *c, size_t c_size);
+char	*ft_prepare_c(t_varpc *svar, char c_var);
+void	ft_fill_s(t_varpc *svar, char *s_var, char *s, size_t s_size);
+char	*ft_prepare_s(t_varpc *svar, char *s_var);
 
 //void	ft_checkrulesconflict(t_varpc *svar);
+char	*ft_testino(char *pc);
+void	ft_svarprint(t_varpc *lol);
 
 #endif

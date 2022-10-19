@@ -6,32 +6,42 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 20:39:14 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/18 22:24:37 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/19 18:44:18 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_pcfinded(char *pc)
+void  ft_svarprint(t_varpc *lol)
+{
+        printf("char %c\n", lol->ascii);
+        printf("len  %lu\n", lol->length);
+        printf("prec %lli\n", lol->prec);
+        printf("32   %i\n", lol->flag_32);
+        printf("plus %i\n", lol->flag_plus);
+        printf("shar %i\n", lol->flag_sharp);
+        printf("dash %i\n", lol->flag_dash);
+        printf("zero %i\n", lol->flag_zero);
+}
+
+t_varpc	*ft_pcfinded(char *pc)
 {
 	char	ascii;
 	t_varpc	*svar;
 	
 	ascii = ft_checkstrpc_endok(pc);
-	printf("ascii is %c\n", ascii);
 	if (ascii)
 	{
 		svar = ft_svarnew(ascii);
-		printf("pc is '%s'\n", pc);
 		if (!svar)
 			return (0);
 		if (ft_checkstrpc_gook(pc, svar))
-			return (1);
-		else
 		{
-			printf("OPS\n");
-			ft_svardel(svar);
+			ft_svarprint(svar);
+			return (svar);
 		}
+		else
+			ft_svardel(svar);
 	}
 	return (0);
 }

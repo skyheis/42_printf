@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 16:03:29 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/18 22:49:58 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/19 16:36:32 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,55 +30,47 @@ size_t	ft_atoi_custom(const char *pc)
 
 int	ft_checkdoubleflag(char pcv, t_varpc *svar)
 {
-	printf("pcv is %c\n", pcv);
 	if (pcv == 32)
 	{
-		if (svar->flag_32)
+		if (svar->flag_32 || svar->length != 0)
 			return (0);
 		svar->flag_32 = 1;
 	}
 	else if (pcv == '+')
 	{
-		if (svar->flag_plus)
+		if (svar->flag_plus || svar->length != 0)
 			return (0);
 		svar->flag_plus = 1;
 	}
 	else if (pcv == '-')
 	{
-		if (svar->flag_dash)
+		if (svar->flag_dash || svar->length != 0)
 			return (0);
 		svar->flag_dash = 1;
 	}
 	else if (pcv == '#')
 	{
-		if (svar->flag_sharp)
+		if (svar->flag_sharp || svar->length != 0)
 			return (0);
 		svar->flag_sharp = 1;
 	}
-	printf("dubleok\n");
 	return (1);
 }
 
-int	ft_checkprecision(char *pc, t_varpc *svar)
+int	ft_checkprecision(char **pc, t_varpc *svar)
 {
-	printf("im in prec\n");
-	if (*pc == '.')
+	if (**pc == '.')
 	{
-		pc++;
-		printf("pc is '%s'\n", pc);
-		if (!ft_isdigit(*pc))
-		{
-			printf("nodig\n");
+		*pc = *pc + 1;
+		if (!ft_isdigit(**pc))
 			return (0);
-		}
-		svar->prec = ft_atoi_custom(pc);
-		printf("preci is '%lu'\n", svar->prec);
-		while (ft_isdigit(*pc))
-			pc++;
-		printf("pc is '%s'\n", pc);
-		if (*pc != 'c' && *pc != 's' && *pc != 'd' && *pc != 'i'
-			&& *pc != 'u' && *pc != 'x' && *pc != 'X')
+		svar->prec = ft_atoi_custom(*pc);
+		while (ft_isdigit(**pc))
+			*pc = *pc + 1;
+		if (**pc != 'c' && **pc != 's' && **pc != 'd' && **pc != 'i'
+			&& **pc != 'u' && **pc != 'x' && **pc != 'X')
 			return (0);
+		*pc = *pc - 1;
 	}
 	return (1);
 }
@@ -101,9 +93,9 @@ int	ft_checkstrpc_gook(char *pc, t_varpc *svar)
 				pc++;
 			pc--;
 		}
-		else if (!ft_checkprecision(pc, svar))
+		else if (!ft_checkdoubleflag(*pc, svar))
 			return (0);
-		if (!ft_checkdoubleflag(*pc, svar))
+		else if (!ft_checkprecision(&pc, svar))
 			return (0);
 		pc++;
 	}
