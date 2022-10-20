@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:25:21 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/19 22:38:25 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/21 01:16:50 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,27 @@
 
 int	main(void)
 {
-	printf("'%s'\n", ft_testino("%-3.0s"));
-	printf("'%-0.0s'\n", "abcdef ghij");
+	printf("'%s'\n", ft_testino("% 0.7i\n"));
+	printf("'% 07i'\n", -42);
+	printf("'%s'\n", ft_testino("%+.6i\n"));
+	printf("'%+.6i'\n", -42);
+	printf("'%s'\n", ft_testino("%+6.4i\n"));
+	printf("'%+6.4i'\n", -42);
+	printf("'%s'\n", ft_testino("%2.4i\n"));
+	printf("'%2.4i'\n", -42);
+	printf("'%s'\n", ft_testino("%+6i\n"));
+	printf("'%+6i'\n", -42);
+	printf("'%s'\n", ft_testino("% 6i\n"));
+	printf("'% 6i'\n", -42);
+//	printf("'%s'\n", ft_testino("%+8.6i"));
+//	printf("'% 8.6i'\n", -42);
+//	printf("'%-+.6i'\n", 42);
+//	printf("'%-+6i'\n", -42);
+//	printf("'%-+6i'\n", 42);
+//	printf("'%- .3i'\n", -42);
+//	printf("'%- 6i'\n", 42);
+//	printf("'%-6i'\n", -42);
+//	printf("'%-6i'\n", 42);
 	//printf("%i\n", ft_pcfinded("% +0-11110.11231x  "));
 	//printf("'%-10.03s'  ", "abcdefghijk" );
 	//printf("printf %10.197i  ", 10 );

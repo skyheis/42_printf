@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 17:33:02 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/19 22:38:19 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/21 01:15:08 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,6 @@ void	ft_fill_s(t_varpc *svar, char *s_var, char *s, size_t s_size)
 	}
 	else
 	{
-		printf("s_size is %lu\n", s_size);
-		printf("s_varlen is %lu\n", s_var_len);
 		while ((s_size - s_var_len) > 0)
 		{
 			*s++ = 32;
@@ -84,7 +82,7 @@ char	*ft_prepare_s(t_varpc *svar, char *s_var)
 	if (svar->flag_32 || svar->flag_plus 
 			|| svar->flag_sharp || svar->flag_zero)
 		return (0);
-	if (svar->prec != -1 && svar->prec < (long long int) s_var_orig_len)
+	if (svar->prec != -1 && svar->prec < (ssize_t) s_var_orig_len)
 		s_var = ft_substr(s_var, 0, svar->prec);
 	s_size = ft_strlen(s_var);
 	if (s_size < svar->length)
@@ -93,7 +91,7 @@ char	*ft_prepare_s(t_varpc *svar, char *s_var)
 	if (!s)
 		return (0);
 	ft_fill_s(svar, s_var, s, s_size);
-	if (svar->prec != -1 && svar->prec < (long long int) s_var_orig_len)
+	if (svar->prec != -1 && svar->prec < (ssize_t) s_var_orig_len)
 		free(s_var);
 	return (s);
 }
@@ -104,6 +102,6 @@ char	*ft_testino(char *pc)
 	
 	svar = ft_pcfinded(pc);
 	if (svar)
-		return (ft_prepare_s(svar, "abcdef ghij"));
+		return (ft_prepare_id(svar, -42));
 	return (0);
 }
