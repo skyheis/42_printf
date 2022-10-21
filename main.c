@@ -15,18 +15,20 @@
 
 int	main(void)
 {
-	printf("'%s'\n", ft_testino("% 0.7i\n"));
-	printf("'% 07i'\n", -42);
-	printf("'%s'\n", ft_testino("%+.6i\n"));
-	printf("'%+.6i'\n", -42);
-	printf("'%s'\n", ft_testino("%+6.4i\n"));
-	printf("'%+6.4i'\n", -42);
-	printf("'%s'\n", ft_testino("%2.4i\n"));
-	printf("'%2.4i'\n", -42);
-	printf("'%s'\n", ft_testino("%+6i\n"));
-	printf("'%+6i'\n", -42);
-	printf("'%s'\n", ft_testino("% 6i\n"));
-	printf("'% 6i'\n", -42);
+	printf("'%s'\n", ft_testino("%07u\n"));
+	printf("'%07u'\n", 42);
+	printf("'%s'\n", ft_testino("%u\n"));
+	printf("'%u'\n", 42);
+	printf("'%s'\n", ft_testino("%8u\n"));
+	printf("'%8u'\n", 42);
+	printf("'%s'\n", ft_testino("%.8ui\n"));
+	printf("'%.8u'\n", 42);
+	printf("'%s'\n", ft_testino("%8.4u\n"));
+	printf("'%8.4u'\n", 42);
+	printf("'%s'\n", ft_testino("%-8.4u\n"));
+	printf("'%-8.4u'\n", 42);
+	printf("'%s'\n", ft_testino("%-.5u\n"));
+	printf("'%-.5u'\n", 42);
 //	printf("'%s'\n", ft_testino("%+8.6i"));
 //	printf("'% 8.6i'\n", -42);
 //	printf("'%-+.6i'\n", 42);

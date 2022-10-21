@@ -62,7 +62,7 @@ void	ft_fill_id_0(t_varpc *svar, char *itoa_var, char *id, ssize_t ia_len)
 		*id++ = ' ';
 }
 
-int	ft_checkconflict(t_varpc *svar)
+int	ft_checkconflict_id(t_varpc *svar)
 {
 	if (svar->flag_32)
 	{
@@ -105,7 +105,7 @@ char	*ft_prepare_id(t_varpc *svar, int id_var)
 	size_t	id_size;
 	size_t	itoa_orig_size;
 
-	if (!ft_checkconflict(svar))
+	if (!ft_checkconflict_id(svar))
 		return (0); 
 	itoa_var = ft_itoa(id_var);
 	itoa_orig_size = ft_strlen(itoa_var);
