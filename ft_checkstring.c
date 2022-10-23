@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 16:03:29 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/23 13:38:40 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/23 21:33:48 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,6 @@ int	ft_checkstrpc_gook(char *pc, t_varpc *svar)
 
 t_varpc	*ft_checkstrpc_endok(char *pc)
 {
-
 	pc++;
 	while (*pc == 32 || *pc == '+' || *pc == '-' || *pc == '.'
 		|| *pc == '#' || ft_isdigit(*pc) || *pc == 'c'

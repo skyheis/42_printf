@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:51:14 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/23 21:21:30 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/23 21:39:50 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	ft_svarclear(t_varpc **svar)
 	tmp = NULL;
 	while (*svar)
 	{
-		
 		tmp = (*svar)->next;
 		free(*svar);
 		(*svar) = tmp;
@@ -75,8 +74,3 @@ t_varpc	*ft_svarnew(char ascii)
 	new->next = NULL;
 	return (new);
 }
-
-/*void	ft_svardel(t_varpc *svar)
-{
-	free(svar);
-}*/

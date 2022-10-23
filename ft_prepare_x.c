@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 15:55:30 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/22 00:00:51 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/23 21:39:07 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,20 +122,3 @@ char	*ft_prepare_x(t_varpc *svar, unsigned int x_var)
 	x = ft_x_handle_zero(svar, x, x_size, x_orig_size);
 	return (x);
 }
-
-/*void	ft_fill_x_var(unsi ned int x_var, char *x)
-{
-	int	c;
-	
-	if (x_var < 16)
-	{
-		c = x_var % 16;
-		*x = "0123456789abcdef"[c];
-	}
-	else
-	{
-		c = x_var % 16;
-		ft_fill_x_var(x_var /= 16, x++);
-		*x = "0123456789abcdef"[c];
-	}
-}*/

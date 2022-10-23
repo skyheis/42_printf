@@ -6,7 +6,7 @@
 #    By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 17:49:20 by ggiannit          #+#    #+#              #
-#    Updated: 2022/10/17 17:07:42 by ggiannit         ###   ########.fr        #
+#    Updated: 2022/10/23 21:41:20 by ggiannit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,9 @@ BNUS = bonus
 
 ###### VARIABLE ######
 
-SRCS = ft_struct.c 
+SRCS = ft_printf.c ft_struct.c ft_checkstring.c ft_getnewpc.c \
+       ft_prepare_cs.c ft_prepare_id.c ft_prepare_p.c ft_prepare_u.c \
+       ft_prepare_x.c ft_handle_zeros.c
 
 OBJS = ${SRCS:.c=.o}
 

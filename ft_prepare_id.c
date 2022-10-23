@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 16:14:45 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/22 00:07:32 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/23 21:38:35 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,20 +125,3 @@ char	*ft_prepare_id(t_varpc *svar, int id_var)
 	free(itoa_var);
 	return (id);
 }
-
-/*int	ft_checkconflict(t_varpc *svar) this is if no -Wall -Werror enable
-{
-	if (svar->flag_32)
-	{
-		if (svar->flag_plus)
-			svar->flag_32 = 0;
-	}
-	if (svar->flag_zero)
-	{
-		if (svar->flag_dash || svar->flag_prec)
-			svar->flag_zero = 0;
-	}
-	if (svar->flag_sharp)
-		return (0);
-	return (1);
-}*/

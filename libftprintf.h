@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:29:39 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/23 21:21:00 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/23 21:35:36 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int		ft_checkprecision(char **pc, t_varpc *svar);
 int		ft_checkstrpc_gook(char *pc, t_varpc *svar);
 t_varpc	*ft_checkstrpc_endok(char *pc);
 int		ft_pcfinded(t_varpc **svar, char *pc);
-char	ft_getascii(char *pc);
 int		ft_strpclen(char *pc);
 void	ft_fill_c(t_varpc *svar, char c_var, char *c, size_t c_size);
 char	*ft_prepare_c(t_varpc *svar, char c_var);
@@ -77,7 +76,7 @@ void	ft_fill_p_1(t_varpc *svar, uintptr_t p_conv, char *p);
 char	*ft_prepare_p(t_varpc *svar, void *p_var);
 int		ft_printf(const char *str, ...);
 
-/*char	*ft_testino(char *pc);*/
-void	ft_svarprint(t_varpc *lol);
+/*char	*ft_testino(char *pc);
+void	ft_svarprint(t_varpc *lol);*/
 
 #endif

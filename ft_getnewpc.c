@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 20:39:14 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/23 20:48:01 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/23 21:36:13 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,10 @@
         printf("zero %i\n", lol->flag_zero);
 }*/
 
-/*char	ft_getascii(char *pc)
-{
-	int	k;
-	
-	k = 1;
-	while (pc[k] == 32 || pc[k] == '+' || pc[k] == '-' || pc[k] == '.'
-		|| pc[k] == '#' || ft_isdigit(pc[k]) || pc[k] == 'c'
-		|| pc[k] == 's' || pc[k] == 'd' || pc[k] == 'i'
-		|| pc[k] == 'u' || pc[k] == 'x' || pc[k] == 'x' || pc[k] == 'p')
-	{
-		if (pc[k] == 'c' || pc[k] == 's' || pc[k] == 'd' || pc[k] == 'i'
-			|| pc[k] == 'u' || pc[k] == 'x' || pc[k] == 'x' || pc[k] == 'p')
-			return (pc[k]);
-		k++;
-	}
-	return (0);
-}*/
-
 int	ft_strpclen(char *pc)
 {
 	int	k;
-	
+
 	k = 1;
 	while (pc[k] == 32 || pc[k] == '+' || pc[k] == '-' || pc[k] == '.'
 		|| pc[k] == '#' || ft_isdigit(pc[k]) || pc[k] == 'c'

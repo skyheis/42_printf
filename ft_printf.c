@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 12:08:13 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/23 21:20:33 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/23 21:33:27 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_pchandle(t_varpc **svar, va_list vargo)
 {
 	char	*toprint;
-	int	ret_pf;
+	int		ret_pf;
 
 	if ((*svar)->ascii == 'c')
 		toprint = ft_prepare_c((*svar), (char) va_arg(vargo, int));
@@ -67,7 +67,7 @@ int	ft_handleprintf(t_varpc *svar, va_list vargo, char *str)
 
 t_varpc	*ft_checkprintfstr(const char *str)
 {
-	int	k;
+	int		k;
 	t_varpc	*svar;
 
 	k = 0;
@@ -78,8 +78,6 @@ t_varpc	*ft_checkprintfstr(const char *str)
 			k += 2;
 		else if (str[k] == '%')
 		{
-			//if (!svar)
-			//	svar = ft_checkstrpc_endok((char *)&str[k]);
 			if (!ft_pcfinded(&svar, (char *) &str[k]))
 				return (0);
 			k++;
@@ -92,7 +90,7 @@ t_varpc	*ft_checkprintfstr(const char *str)
 
 int	ft_printf(const char *str, ...)
 {
-	int	ret_pf;
+	int		ret_pf;
 	va_list	vargo;
 	t_varpc	*svar;
 
