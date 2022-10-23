@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 12:08:13 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/23 21:33:27 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/23 23:17:32 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,13 @@ int	ft_pchandle(t_varpc **svar, va_list vargo)
 		toprint = ft_prepare_id((*svar), va_arg(vargo, int));
 	else if ((*svar)->ascii == 'u')
 		toprint = ft_prepare_u((*svar), va_arg(vargo, unsigned int));
-	else if ((*svar)->ascii == 'x' && (*svar)->ascii == 'X')
+	else if ((*svar)->ascii == 'x' || (*svar)->ascii == 'X')
 		toprint = ft_prepare_x((*svar), va_arg(vargo, unsigned int));
 	else if ((*svar)->ascii == 'p')
 		toprint = ft_prepare_p((*svar), va_arg(vargo, void *));
 	ft_putstr_fd(toprint, 1);
 	ret_pf = ft_strlen(toprint);
+	//printf("svar ascii is %c\n", (*svar)->ascii);
 	(*svar) = (*svar)->next;
 	free(toprint);
 	return (ret_pf);
