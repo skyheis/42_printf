@@ -6,29 +6,39 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:25:21 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/21 01:16:50 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/23 21:22:22 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include <stdio.h>
+#include <stdint.h>
 
 int	main(void)
 {
-	printf("'%s'\n", ft_testino("%07u\n"));
-	printf("'%07u'\n", 42);
-	printf("'%s'\n", ft_testino("%u\n"));
+//	char *a = "aaaa";
+//	printf("%lu\n", sizeof(uintptr_t));
+	//ft_printf("'%p'\n", a);
+	printf("ho stampato %i chars\n", ft_printf("'%c' e '%-.4s'\n", 'a', "ciaoo"));
+	//printf("'%p'\n", a);
+//	printf("'%#010x'\n", 412022);
+	//printf("'%#010x'\n", 11242);
+	//printf("'%#10x'\n", 11242);
+	//printf("'%#010x'\n", 11242);
+	//printf("'%10.5x'\n", 11242);
+	//printf("'%#10.5x'\n", 11242);
+/*	printf("'%s'\n", ft_testino("%u\n"));
 	printf("'%u'\n", 42);
 	printf("'%s'\n", ft_testino("%8u\n"));
 	printf("'%8u'\n", 42);
-	printf("'%s'\n", ft_testino("%.8ui\n"));
+	printf("'%s'\n", ft_testino("%.8u\n"));
 	printf("'%.8u'\n", 42);
-	printf("'%s'\n", ft_testino("%8.4u\n"));
-	printf("'%8.4u'\n", 42);
+	printf("'%s'\n", ft_testino("%-4.8u\n"));
+	printf("'%-4.8u'\n", 42);
 	printf("'%s'\n", ft_testino("%-8.4u\n"));
 	printf("'%-8.4u'\n", 42);
 	printf("'%s'\n", ft_testino("%-.5u\n"));
-	printf("'%-.5u'\n", 42);
+	printf("'%-.5u'\n", 42);*/
 //	printf("'%s'\n", ft_testino("%+8.6i"));
 //	printf("'% 8.6i'\n", -42);
 //	printf("'%-+.6i'\n", 42);
@@ -53,7 +63,6 @@ int	main(void)
 	ft_printf("", );
 }*/
 
-
 // main checkstr
 /*int	main(void)
 {
@@ -64,7 +73,6 @@ int	main(void)
 	printf("%i \n", ft_checkstrpc("% -X"));
 	printf("%i \n", ft_checkstrpc("%1112231312d"));
 }*/
-
 
 // main struct
 /*void	ft_svarprint(t_varpc	*lol)
@@ -78,7 +86,6 @@ int	main(void)
 	printf("zero %i\n", lol->flag_zero);
 	printf("prec %i\n", lol->flag_prec);
 }
-
 
 int	main(void)
 {

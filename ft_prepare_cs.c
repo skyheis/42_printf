@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_prepare.c                                       :+:      :+:    :+:   */
+/*   ft_prepare_cs.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 17:33:02 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/21 01:15:08 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/23 16:39:24 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	ft_fill_c(t_varpc *svar, char c_var, char *c, size_t c_size)
 /* possibile errore se malloc con \0 ?  */
 char	*ft_prepare_c(t_varpc *svar, char c_var)
 {
-	char *c;
-	size_t c_size;
+	char	*c;
+	size_t	c_size;
 
 	if (svar->prec != -1 || svar->flag_32 || svar->flag_plus
 		|| svar->flag_sharp || svar->flag_zero)
@@ -79,8 +79,8 @@ char	*ft_prepare_s(t_varpc *svar, char *s_var)
 	size_t	s_var_orig_len;
 
 	s_var_orig_len = ft_strlen(s_var);
-	if (svar->flag_32 || svar->flag_plus 
-			|| svar->flag_sharp || svar->flag_zero)
+	if (svar->flag_32 || svar->flag_plus
+		|| svar->flag_sharp || svar->flag_zero)
 		return (0);
 	if (svar->prec != -1 && svar->prec < (ssize_t) s_var_orig_len)
 		s_var = ft_substr(s_var, 0, svar->prec);
@@ -96,12 +96,14 @@ char	*ft_prepare_s(t_varpc *svar, char *s_var)
 	return (s);
 }
 
-char	*ft_testino(char *pc)
+/*char	*ft_testino(char *pc)
 {
 	t_varpc	*svar;
-	
+
 	svar = ft_pcfinded(pc);
 	if (svar)
-		return (ft_prepare_id(svar, -42));
+	{
+		return (ft_prepare_p(svar, svar));
+	}
 	return (0);
-}
+}*/

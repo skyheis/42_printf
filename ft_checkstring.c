@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 16:03:29 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/19 16:36:32 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/23 13:38:40 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	ft_checkprecision(char **pc, t_varpc *svar)
 		while (ft_isdigit(**pc))
 			*pc = *pc + 1;
 		if (**pc != 'c' && **pc != 's' && **pc != 'd' && **pc != 'i'
-			&& **pc != 'u' && **pc != 'x' && **pc != 'X')
+			&& **pc != 'u' && **pc != 'x' && **pc != 'X' && **pc != 'p')
 			return (0);
 		*pc = *pc - 1;
 	}
@@ -102,17 +102,18 @@ int	ft_checkstrpc_gook(char *pc, t_varpc *svar)
 	return (1);
 }
 
-char	ft_checkstrpc_endok(char *pc)
+t_varpc	*ft_checkstrpc_endok(char *pc)
 {
+
 	pc++;
 	while (*pc == 32 || *pc == '+' || *pc == '-' || *pc == '.'
 		|| *pc == '#' || ft_isdigit(*pc) || *pc == 'c'
 		|| *pc == 's' || *pc == 'd' || *pc == 'i'
-		|| *pc == 'u' || *pc == 'x' || *pc == 'X')
+		|| *pc == 'u' || *pc == 'x' || *pc == 'X' || *pc == 'p')
 	{
 		if (*pc == 'c' || *pc == 's' || *pc == 'd' || *pc == 'i'
-			|| *pc == 'u' || *pc == 'x' || *pc == 'X')
-			return (*pc);
+			|| *pc == 'u' || *pc == 'x' || *pc == 'X' || *pc == 'p')
+			return (ft_svarnew(*pc));
 		pc++;
 	}
 	return (0);
