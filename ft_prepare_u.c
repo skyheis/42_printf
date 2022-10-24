@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 10:28:45 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/23 15:34:22 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/24 21:57:13 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	*ft_prepare_u(t_varpc *svar, unsigned int u_var)
 
 	if (!ft_checkconflict_u(svar))
 		return (0);
-	utoa_var = ft_itoa((int) u_var);
+	utoa_var = ft_lutoa((long unsigned int) u_var);
 	utoa_orig_size = ft_strlen(utoa_var);
 	u_size = utoa_orig_size;
 	ft_adjust_usize(svar, &u_size);

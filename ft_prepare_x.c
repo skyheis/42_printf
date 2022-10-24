@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 15:55:30 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/23 21:39:07 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/24 16:14:48 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_put_x_var(t_varpc *svar, unsigned int x_var,
 {
 	int	c;
 
+	if (!x_var)
+		x_spot[x_orig_size - 1] = '0';
 	if (svar->ascii == 'x')
 	{
 		while (x_orig_size)

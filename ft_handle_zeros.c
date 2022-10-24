@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 20:39:14 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/23 18:48:56 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/24 17:17:48 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,33 @@ int	ft_get_x_size(unsigned int x_var)
 	{
 		x_var /= 16;
 		k++;
-	}
+	}	
+	if (!k)
+		return (1);
 	return (k);
 }
+
+int	ft_putstr_pf_fd(const char * str, int fd)
+{
+	int	k;
+	int	pf;
+
+	k = 0;
+	pf = 0;
+	while (str[k] != '\0')
+	{
+		if (str[k] == '%' && str[k + 1] == '%')
+		{
+			write(fd, "%", 1);
+			pf++;
+			k += 2;
+		}
+		else
+		{
+			 write(fd, &str[k++], 1);
+			 pf++;
+		}
+	}
+	return (pf);
+}
+

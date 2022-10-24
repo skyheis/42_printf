@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 12:08:13 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/23 23:17:32 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/24 17:17:10 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,20 @@
 
 int	ft_pchandle(t_varpc **svar, va_list vargo)
 {
-	char	*toprint;
 	int		ret_pf;
 
+	ret_pf = 0;
 	if ((*svar)->ascii == 'c')
-		toprint = ft_prepare_c((*svar), (char) va_arg(vargo, int));
+		ret_pf = ft_isa_c(svar, (char) va_arg(vargo, int));
 	else if ((*svar)->ascii == 's')
-		toprint = ft_prepare_s((*svar), va_arg(vargo, char *));
+		ret_pf = ft_isa_s(svar, va_arg(vargo, char *));
 	else if ((*svar)->ascii == 'i' || (*svar)->ascii == 'd')
-		toprint = ft_prepare_id((*svar), va_arg(vargo, int));
-	else if ((*svar)->ascii == 'u')
-		toprint = ft_prepare_u((*svar), va_arg(vargo, unsigned int));
-	else if ((*svar)->ascii == 'x' || (*svar)->ascii == 'X')
-		toprint = ft_prepare_x((*svar), va_arg(vargo, unsigned int));
+		ret_pf = ft_isa_id(svar, va_arg(vargo, int));
+	else if ((*svar)->ascii == 'x' || (*svar)->ascii == 'X' 
+		|| (*svar)->ascii == 'u')
+		ret_pf = ft_isa_ux(svar, va_arg(vargo, unsigned int));
 	else if ((*svar)->ascii == 'p')
-		toprint = ft_prepare_p((*svar), va_arg(vargo, void *));
-	ft_putstr_fd(toprint, 1);
-	ret_pf = ft_strlen(toprint);
-	//printf("svar ascii is %c\n", (*svar)->ascii);
-	(*svar) = (*svar)->next;
-	free(toprint);
+		ret_pf = ft_isa_p(svar, va_arg(vargo, void *));
 	return (ret_pf);
 }
 
@@ -53,8 +47,8 @@ int	ft_handleprintf(t_varpc *svar, va_list vargo, char *str)
 		}
 		else if (str[k] == '%' && str[k + 1] == '%')
 		{
-			write(1, "%%", 2);
-			ret_pf += 2;
+			write(1, "%", 1);
+			ret_pf++;
 			k += 2;
 		}
 		else
@@ -99,7 +93,7 @@ int	ft_printf(const char *str, ...)
 		return (0);
 	svar = ft_checkprintfstr(str);
 	if (!svar)
-		return (0);
+		return (ft_putstr_pf_fd(str, 1));
 	va_start(vargo, str);
 	ret_pf = ft_handleprintf(svar, vargo, (char *) str);
 	ft_svarclear(&svar);

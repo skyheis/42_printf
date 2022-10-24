@@ -6,15 +6,15 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 14:20:32 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/09 14:37:24 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/24 14:43:41 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_putstr_fd(char *s, int fd)
 {
-	unsigned int	k;
+	int	k;
 
 	k = 0;
 	if (s)
@@ -25,4 +25,5 @@ void	ft_putstr_fd(char *s, int fd)
 			k++;
 		}
 	}
+	return (k);
 }
