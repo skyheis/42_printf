@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 21:41:38 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/24 21:41:36 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/24 23:45:37 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main(void)
 	ciao = 42;
 //	null_str = NULL;
 //	printf("%lu\n", (long unsigned int)-1);
+	ft_printf("%u\n", (unsigned int)4294967295);
 	ft_printf("This %p is even stranger", (void *)-1);
 	ft_printf("This %p is even stranger", (void *)(long int)ciao);
 //	ft_printf("%s daje", null_str);
