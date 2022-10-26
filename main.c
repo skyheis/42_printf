@@ -6,32 +6,34 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 21:41:38 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/24 23:45:37 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/26 22:33:44 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-/*int main(void)
-{
-   char* p;
-
-   p = NULL;
-   printf("%s", p);
-   return 0;
-}*/
-
 int	main(void)
 {
 //	char *null_str;
-	int	ciao;
+//	char	*ll = "ciao";
 
-	ciao = 42;
+//	ciao = 42;
 //	null_str = NULL;
 //	printf("%lu\n", (long unsigned int)-1);
-	ft_printf("%u\n", (unsigned int)4294967295);
-	ft_printf("This %p is even stranger", (void *)-1);
-	ft_printf("This %p is even stranger", (void *)(long int)ciao);
+	ft_printf("'%#x'", 0);
+	//ft_printf("%x\n", 0);
+//	ft_printf("%x\n", 42122);
+	//printf("ret %i", ciao);
+	//b = printf("%0002.u", 30);
+	//printf("\n");
+	//printf("a\t%i\nb\t%i\n", a, b);
+	//ft_printf("%u\n", (unsigned int)4294967295);
+	//ft_printf("This %p is even stranger", (void *)-1);
+	//ft_printf("This %p is even stranger", (void *)(long int)ciao);
+//	ft_printf("This %30p is even stranger\n", (void *)ll);
+//	printf("This %30p is even stranger\n", (void *)ll);
+//	ft_printf("%1.s\n", "21-school.ru");
+//	printf("%1.s\nlol", "21-school.ru");
 //	ft_printf("%s daje", null_str);
 	/*ft_printf("this is safe! %s %%\n", "amazing!");
 	ft_printf("this is safe!\n");

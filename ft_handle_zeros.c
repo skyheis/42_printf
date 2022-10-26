@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 20:39:14 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/24 17:17:48 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/25 21:48:59 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,3 +91,19 @@ int	ft_putstr_pf_fd(const char * str, int fd)
 	return (pf);
 }
 
+int	ft_handle_nil(t_varpc *svar)
+{
+	int	k;
+
+	k = 0;
+	if (svar->prec > 0 && svar->prec < 5)
+		return (0);
+	while (svar->length-- > 5)
+	{
+		write(1, " ", 1);
+		k++;
+	}
+	write(1, "(nil)", 5);
+	k += 5;
+	return (k);
+}

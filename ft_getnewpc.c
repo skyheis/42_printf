@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 20:39:14 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/23 23:10:35 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/26 15:23:21 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,28 @@
         printf("dash %i\n", lol->flag_dash);
         printf("zero %i\n", lol->flag_zero);
 }*/
+int	ft_fill_id_1_32(t_varpc *svar, char *itoa_var, char *id, ssize_t ia_len)
+{
+	int	k;
+
+	k = 0;
+	if (svar->prec == 0 && *itoa_var == '0')
+	{
+		while ((ssize_t) svar->length-- > svar->prec)
+			id[k++] = ' ';
+	}
+	else if (svar->prec == 0)
+	{
+		while ((ssize_t) svar->length-- > ia_len + 1)
+			id[k++] = ' ';
+	}
+	else
+	{
+		while ((ssize_t)svar->length-- > svar->prec + 1)
+			id[k++] = ' ';
+	}
+	return (k);
+}
 
 int	ft_strpclen(char *pc)
 {

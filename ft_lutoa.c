@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:37:59 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/24 23:54:26 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/26 17:12:51 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,47 @@ char	*ft_lutoa(long unsigned int n)
 		n /= 10;
 	}
 	return (str_nbr);
+}
+
+size_t	ft_strlcpy_idu(t_varpc *svar, char *dst, const char *src, size_t size)
+{
+	size_t  k;
+
+	if (svar->prec == 0 && src[0] == '0')
+	{
+		dst[svar->length] = '\0';
+		return (0);
+	}
+	k = 0;
+	if (size == 0)
+		return (ft_strlen(src));
+	while (k < size - 1 && src[k] != '\0')
+	{
+		dst[k] = src[k];
+		k++;
+	}
+	dst[k] = '\0';
+	return (ft_strlen(src));
+}
+
+size_t	ft_strlcpy_x(t_varpc *svar, char *dst, const char *src, size_t size)
+{
+	size_t  k;
+
+	/*if (svar->prec == 0 && src[0] == '0')
+	{
+		dst[svar->length] = '\0';
+		return (0);
+	}*/
+	(void)svar->ascii;
+	k = 0;
+	if (size == 0)
+		return (ft_strlen(src));
+	while (k < size && src[k] != '\0')
+	{
+		dst[k] = src[k];
+		k++;
+	}
+	dst[k] = '\0';
+	return (ft_strlen(src));
 }

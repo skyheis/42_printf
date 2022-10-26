@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 16:03:29 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/23 21:33:48 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/26 09:27:41 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,26 +32,18 @@ int	ft_checkdoubleflag(char pcv, t_varpc *svar)
 {
 	if (pcv == 32)
 	{
-		if (svar->flag_32 || svar->length != 0)
-			return (0);
 		svar->flag_32 = 1;
 	}
 	else if (pcv == '+')
 	{
-		if (svar->flag_plus || svar->length != 0)
-			return (0);
 		svar->flag_plus = 1;
 	}
 	else if (pcv == '-')
 	{
-		if (svar->flag_dash || svar->length != 0)
-			return (0);
 		svar->flag_dash = 1;
 	}
 	else if (pcv == '#')
 	{
-		if (svar->flag_sharp || svar->length != 0)
-			return (0);
 		svar->flag_sharp = 1;
 	}
 	return (1);
@@ -62,8 +54,16 @@ int	ft_checkprecision(char **pc, t_varpc *svar)
 	if (**pc == '.')
 	{
 		*pc = *pc + 1;
-		if (!ft_isdigit(**pc))
+		if (!ft_isdigit(**pc) && **pc != 'c' && **pc != 's'
+			&& **pc != 'd' && **pc != 'i' && **pc != 'u'
+			&& **pc != 'x' && **pc != 'X' && **pc != 'p')
 			return (0);
+		else if (!ft_isdigit(**pc))
+		{
+			svar->prec = 0;
+			*pc = *pc - 1;
+			return (1);
+		}
 		svar->prec = ft_atoi_custom(*pc);
 		while (ft_isdigit(**pc))
 			*pc = *pc + 1;
@@ -82,8 +82,6 @@ int	ft_checkstrpc_gook(char *pc, t_varpc *svar)
 	{
 		if (*pc == '0')
 		{
-			if (svar->flag_zero)
-				return (0);
 			svar->flag_zero = 1;
 		}
 		else if (ft_isdigit(*pc))

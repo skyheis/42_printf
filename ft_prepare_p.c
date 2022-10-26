@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 00:25:14 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/24 21:40:17 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/25 21:15:10 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ char	*ft_prepare_p(t_varpc *svar, void *p_var)
 	if (!p)
 		return (0);
 	p[p_size] = '\0';
+	p_size = ft_size_for_p(p_conv);
 	if (svar->flag_dash)
 		ft_fill_p_0(svar, p_conv, p, p_size);
 	else

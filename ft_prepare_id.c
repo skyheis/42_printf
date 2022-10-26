@@ -6,11 +6,33 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 16:14:45 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/23 21:38:35 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/26 22:20:22 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+/*int	ft_fill_id_1_32(t_varpc *svar, char *itoa_var, char *id, ssize_t ia_len)
+{
+	int	k;
+
+	k = 0;
+	if (svar->prec == 0 && *itoa_var == '0')
+	{
+		while ((ssize_t) svar->length-- > svar->prec)
+			id[k++] = ' ';
+	}
+	else if (svar->prec == 0)
+	{
+		while ((ssize_t) svar->length-- > ia_len + 1)
+			id[k++] = ' ';
+	}
+	else
+	{
+		while ((ssize_t)svar->length-- > svar->prec + 1)
+			id[k++] = ' ';
+	}
+	return (k);
+}*/
 
 void	ft_fill_id_1(t_varpc *svar, char *itoa_var, char *id, ssize_t ia_len)
 {
@@ -22,8 +44,22 @@ void	ft_fill_id_1(t_varpc *svar, char *itoa_var, char *id, ssize_t ia_len)
 		svar->length++;
 	if (svar->prec == -1)
 		svar->length -= ia_len;
-	while ((ssize_t) svar->length-- > svar->prec + 1)
-		*id++ = ' ';
+	id += ft_fill_id_1_32(svar, itoa_var, id, ia_len);
+/*	if (svar->prec == 0 && *itoa_var == '0')
+	{
+		while ((ssize_t) svar->length-- > svar->prec)
+			*id++ = ' ';
+	}
+	else if (svar->prec == 0)
+	{
+		while ((ssize_t) svar->length-- > ia_len + 1)
+			*id++ = ' ';
+	}
+	else
+	{
+		while ((ssize_t) svar->length-- > svar->prec + 1)
+			*id++ = ' ';
+	}*/
 	if (itoa_var[0] != '-' && svar->flag_plus)
 		*id++ = '+';
 	else if (itoa_var[0] != '-' && svar->flag_32)
@@ -35,9 +71,9 @@ void	ft_fill_id_1(t_varpc *svar, char *itoa_var, char *id, ssize_t ia_len)
 	while (svar->prec > ia_len++)
 		*id++ = '0';
 	if (itoa_var[0] == '-')
-		id += ft_strlcpy(id, &itoa_var[1], ia_len);
+		id += ft_strlcpy_idu(svar, id, &itoa_var[1], ia_len);
 	else
-		id += ft_strlcpy(id, itoa_var, ia_len);
+		id += ft_strlcpy_idu(svar, id, itoa_var, ia_len);
 }
 
 void	ft_fill_id_0(t_varpc *svar, char *itoa_var, char *id, ssize_t ia_len)
@@ -53,10 +89,12 @@ void	ft_fill_id_0(t_varpc *svar, char *itoa_var, char *id, ssize_t ia_len)
 	while (svar->prec > ia_len++)
 		*id++ = '0';
 	if (itoa_var[0] == '-')
-		id += ft_strlcpy(id, &itoa_var[1], ia_len);
+		id += ft_strlcpy_idu(svar, id, &itoa_var[1], ia_len);
 	else
-		id += ft_strlcpy(id, itoa_var, ia_len);
+		id += ft_strlcpy_idu(svar, id, itoa_var, ia_len);
 	if (itoa_var[0] != '-' && !svar->flag_plus && !svar->flag_32)
+		ia_len--;
+	if (*itoa_var == '0' && svar->prec == 0)
 		ia_len--;
 	while ((ssize_t) svar->length > ia_len++)
 		*id++ = ' ';
@@ -67,14 +105,15 @@ int	ft_checkconflict_id(t_varpc *svar)
 	if (svar->flag_32)
 	{
 		if (svar->flag_plus)
-			return (0);
+			svar->flag_32 = 0;
 	}
 	if (svar->flag_zero)
 	{
 		if (svar->flag_dash || svar->prec != -1)
-			return (0);
+			svar->flag_zero = 0;
 	}
-	if (svar->flag_sharp)
+	if (svar->flag_sharp &&
+		(svar->ascii == 'd' || svar->ascii == 'i'))
 		return (0);
 	return (1);
 }
@@ -85,7 +124,12 @@ void	ft_adjust_idsize(t_varpc *svar, size_t *id_size,
 	if (svar->length > *id_size || svar->prec > (ssize_t)(*id_size))
 	{
 		if ((ssize_t) svar->length > svar->prec)
+		{
+			if (svar->prec <= (ssize_t)*id_size &&
+				svar->prec != 0 && !svar->flag_dash)
+				svar->prec = -1;
 			*id_size = svar->length;
+		}
 		else
 			*id_size = (ssize_t) svar->prec;
 	}

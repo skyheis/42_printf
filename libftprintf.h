@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:29:39 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/24 21:57:33 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/26 19:55:53 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,19 @@ void	ft_adjust_idsize(t_varpc *svar, size_t *id_size,
 char	*ft_prepare_id(t_varpc *svar, int id_var);
 void	ft_fill_id_0(t_varpc *svar, char *itoa_var, char *id, ssize_t ia_len);
 void	ft_fill_id_1(t_varpc *svar, char *itoa_var, char *id, ssize_t ia_len);
+int		ft_fill_id_1_32(t_varpc *svar, char *itoa_var, char *id, ssize_t ia_len);
 char	*ft_idu_handle_zero(t_varpc *svar, char *id, char itoa_0);
-void	ft_fill_u(t_varpc *svar, char *itoa_var, char *id, ssize_t ua_len);
+void	ft_fill_u_0(t_varpc *svar, char *itoa_var, char *id, ssize_t ua_len);
+void	ft_fill_u_1(t_varpc *svar, char *itoa_var, char *id, ssize_t ua_len);
 int		ft_checkconflict_u(t_varpc *svar);
 void	ft_adjust_usize(t_varpc *svar, size_t *u_size);
 char	*ft_prepare_u(t_varpc *svar, unsigned int u_var);
 int		ft_get_x_size(unsigned int x_var);
 void	ft_put_x_var(t_varpc *svar, unsigned int x_var,
 			char *x_spot, ssize_t x_orig_size);
-void	ft_fill_x(t_varpc *svar, unsigned int x_var,
+void	ft_fill_x_0(t_varpc *svar, char *x_conv,
+		char *x, ssize_t x_orig_size);
+void	ft_fill_x_1(t_varpc *svar, char *x_conv,
 			char *x, ssize_t x_orig_size);
 void	ft_adjust_xsize(t_varpc *svar, unsigned int x_var, size_t *x_size);
 char	*ft_x_handle_zero(t_varpc *svar, char *x,
@@ -74,6 +78,7 @@ char	*ft_prepare_x(t_varpc *svar, unsigned int x_var);
 void	ft_fill_p_0(t_varpc *svar, uintptr_t p_conv, char *p, size_t p_size);
 void	ft_fill_p_1(t_varpc *svar, uintptr_t p_conv, char *p, size_t p_size);
 size_t	ft_size_for_p(uintptr_t p_conv);
+int	ft_handle_nil(t_varpc *svar);
 char	*ft_prepare_p(t_varpc *svar, void *p_var);
 char    *ft_lutoa(long unsigned int n);
 int		ft_printf(const char *str, ...);
@@ -83,6 +88,8 @@ int		ft_isa_p(t_varpc **svar, void *p_var);
 int		ft_isa_id(t_varpc **svar, int id_var);
 int		ft_isa_ux(t_varpc **svar, unsigned int ux_var);
 int     	ft_putstr_pf_fd(const char * str, int fd);
+size_t	ft_strlcpy_idu(t_varpc *svar, char *dst, const char *src, size_t size);
+size_t	ft_strlcpy_x(t_varpc *svar, char *dst, const char *src, size_t size);
 
 /*char	*ft_testino(char *pc);
 void	ft_svarprint(t_varpc *lol);*/

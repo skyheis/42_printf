@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 14:08:41 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/24 17:10:13 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/26 18:17:56 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	ft_isa_c(t_varpc **svar, char c_var)
 	{
 		ft_putchar_fd('\0', 1);
 		flago++;
+		if ((*svar)->flag_dash && (*svar)->length > 0)
+			flago += ft_putstr_fd(&toprint[1], 1);
 	}
 	(*svar) = (*svar)->next;
 	free(toprint);
@@ -30,6 +32,26 @@ int	ft_isa_c(t_varpc **svar, char c_var)
 }
 
 int	ft_isa_s(t_varpc **svar, char *s_var)
+{
+	char    *toprint;
+	int	flago;
+ 
+	if (!s_var)
+	{
+		if ((*svar)->prec > 0 && (*svar)->prec < 6)
+			toprint = ft_prepare_s((*svar), "");
+		else
+			toprint = ft_prepare_s((*svar), "(null)");
+	}
+	else
+		toprint = ft_prepare_s((*svar), s_var);
+	flago = ft_putstr_fd(toprint, 1);
+	free(toprint);
+	(*svar) = (*svar)->next;
+	return (flago);
+}
+
+/*int	ft_isa_s(t_varpc **svar, char *s_var)
 {
 	char    *toprint;
 	int	flago;
@@ -44,7 +66,7 @@ int	ft_isa_s(t_varpc **svar, char *s_var)
 	}
 	(*svar) = (*svar)->next;
 	return (flago);
-}
+}*/
 
 int	ft_isa_p(t_varpc **svar, void *p_var)
 {
@@ -52,7 +74,7 @@ int	ft_isa_p(t_varpc **svar, void *p_var)
 	int	flago;
  
 	if (!p_var)
-		flago = ft_putstr_fd("(nil)", 1);
+		flago = ft_handle_nil((*svar));
 	else
 	{
 		toprint = ft_prepare_p((*svar), p_var);
@@ -84,7 +106,9 @@ int	ft_isa_ux(t_varpc **svar, unsigned int ux_var)
 		toprint = ft_prepare_u((*svar), ux_var);
 	else
 		toprint = ft_prepare_x((*svar), ux_var);
+	//printf("'%s'", toprint);
 	flago = ft_putstr_fd(toprint, 1);
+	//printf("f = %i\n", falgo);
 	free(toprint);
 	(*svar) = (*svar)->next;
 	return (flago);
