@@ -6,7 +6,7 @@
 #    By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 17:49:20 by ggiannit          #+#    #+#              #
-#    Updated: 2022/10/24 21:56:14 by ggiannit         ###   ########.fr        #
+#    Updated: 2022/10/27 12:59:42 by ggiannit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ ${NAME}: ${OBJS}
 
 ${BNUS}: all
 
-clean:
+clean: libftclean
 	@echo "==++===++=== CLEAN ALL OBJECTS ===++==++=="
 	${RM} ${OBJS} 
 	@echo ""

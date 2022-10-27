@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 14:08:41 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/26 18:17:56 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/27 12:40:42 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_isa_c(t_varpc **svar, char c_var)
 {
-	char    *toprint;
-	int	flago;
+	char	*toprint;
+	int		flago;
 
 	toprint = ft_prepare_c((*svar), (char) c_var);
 	flago = ft_putstr_fd(toprint, 1);
@@ -33,9 +33,9 @@ int	ft_isa_c(t_varpc **svar, char c_var)
 
 int	ft_isa_s(t_varpc **svar, char *s_var)
 {
-	char    *toprint;
-	int	flago;
- 
+	char	*toprint;
+	int		flago;
+
 	if (!s_var)
 	{
 		if ((*svar)->prec > 0 && (*svar)->prec < 6)
@@ -51,28 +51,11 @@ int	ft_isa_s(t_varpc **svar, char *s_var)
 	return (flago);
 }
 
-/*int	ft_isa_s(t_varpc **svar, char *s_var)
-{
-	char    *toprint;
-	int	flago;
- 
-	if (!s_var)
-		flago = ft_putstr_fd("(null)", 1);
-	else
-	{
-		toprint = ft_prepare_s((*svar), s_var);
-		flago = ft_putstr_fd(toprint, 1);
-		free(toprint);
-	}
-	(*svar) = (*svar)->next;
-	return (flago);
-}*/
-
 int	ft_isa_p(t_varpc **svar, void *p_var)
 {
-	char    *toprint;
-	int	flago;
- 
+	char	*toprint;
+	int		flago;
+
 	if (!p_var)
 		flago = ft_handle_nil((*svar));
 	else
@@ -87,9 +70,9 @@ int	ft_isa_p(t_varpc **svar, void *p_var)
 
 int	ft_isa_id(t_varpc **svar, int id_var)
 {
-	char    *toprint;
-	int	flago;
- 
+	char	*toprint;
+	int		flago;
+
 	toprint = ft_prepare_id((*svar), id_var);
 	flago = ft_putstr_fd(toprint, 1);
 	free(toprint);
@@ -99,16 +82,14 @@ int	ft_isa_id(t_varpc **svar, int id_var)
 
 int	ft_isa_ux(t_varpc **svar, unsigned int ux_var)
 {
-	char    *toprint;
-	int	flago;
- 
+	char	*toprint;
+	int		flago;
+
 	if ((*svar)->ascii == 'u')
 		toprint = ft_prepare_u((*svar), ux_var);
 	else
 		toprint = ft_prepare_x((*svar), ux_var);
-	//printf("'%s'", toprint);
 	flago = ft_putstr_fd(toprint, 1);
-	//printf("f = %i\n", falgo);
 	free(toprint);
 	(*svar) = (*svar)->next;
 	return (flago);

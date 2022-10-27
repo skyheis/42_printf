@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 20:39:14 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/25 21:48:59 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/27 10:03:45 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	ft_get_x_size(unsigned int x_var)
 	return (k);
 }
 
-int	ft_putstr_pf_fd(const char * str, int fd)
+int	ft_putstr_pf_fd(const char *str, int fd)
 {
 	int	k;
 	int	pf;
@@ -84,8 +84,8 @@ int	ft_putstr_pf_fd(const char * str, int fd)
 		}
 		else
 		{
-			 write(fd, &str[k++], 1);
-			 pf++;
+			write(fd, &str[k++], 1);
+			pf++;
 		}
 	}
 	return (pf);

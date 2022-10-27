@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 12:08:13 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/24 17:17:10 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/27 12:38:10 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_pchandle(t_varpc **svar, va_list vargo)
 		ret_pf = ft_isa_s(svar, va_arg(vargo, char *));
 	else if ((*svar)->ascii == 'i' || (*svar)->ascii == 'd')
 		ret_pf = ft_isa_id(svar, va_arg(vargo, int));
-	else if ((*svar)->ascii == 'x' || (*svar)->ascii == 'X' 
+	else if ((*svar)->ascii == 'x' || (*svar)->ascii == 'X'
 		|| (*svar)->ascii == 'u')
 		ret_pf = ft_isa_ux(svar, va_arg(vargo, unsigned int));
 	else if ((*svar)->ascii == 'p')

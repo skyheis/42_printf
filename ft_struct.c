@@ -6,34 +6,15 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:51:14 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/23 23:20:50 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/27 12:41:35 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-/*void	ft_svarnext(t_varpc **svar)
-{
-	//t_varpc	*tmp;
-	
-	(*svar) = (*svar)->next;
-	tmp = (*svar)->next;
-	free(*svar);
-	(*svar) = tmp;
-}*/
-
-/*t_varpc	*ft_svarlast(t_varpc *svar)
-{
-	if (svar == NULL)
-		return (svar);
-	while (svar->next != NULL)
-		svar = svar->next;
-	return (svar);
-}*/
-
 void	ft_svaradd_back(t_varpc **svar, t_varpc *new)
-{ 
-	t_varpc *tmp;
+{
+	t_varpc	*tmp;
 
 	if (*svar == NULL)
 		*svar = new;

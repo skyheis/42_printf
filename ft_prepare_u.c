@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 10:28:45 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/26 14:27:03 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/27 12:35:54 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ void	ft_fill_u_1(t_varpc *svar, char *utoa_var, char *u, ssize_t ua_len)
 	k = svar->length;
 	if (svar->prec == -1)
 		svar->length -= ua_len;
-	if ((svar->prec == 0 && *utoa_var == '0')|| svar->prec > 0)
+	if ((svar->prec == 0 && *utoa_var == '0') || svar->prec > 0)
 	{
 		while ((ssize_t) svar->length-- > svar->prec)
 			*u++ = ' ';
 	}
-	else if(svar->prec == 0)
+	else if (svar->prec == 0)
 	{
 		while ((ssize_t) svar->length-- > ua_len)
 			*u++ = ' ';
@@ -69,14 +69,14 @@ void	ft_adjust_usize(t_varpc *svar, size_t *u_size)
 	{
 		if ((ssize_t) svar->length > svar->prec)
 		{
-			if (svar->prec <= (ssize_t)*u_size && svar->prec != 0)
+			if (svar->prec <= (ssize_t)(*u_size) && svar->prec != 0)
 				svar->prec = -1;
 			*u_size = svar->length;
 		}
 		else
 			*u_size = (ssize_t) svar->prec;
 	}
-	else if (svar->prec <= (ssize_t)*u_size && svar->prec != 0)
+	else if (svar->prec <= (ssize_t)(*u_size) && svar->prec != 0)
 		svar->prec = -1;
 }
 
@@ -99,7 +99,7 @@ char	*ft_prepare_u(t_varpc *svar, unsigned int u_var)
 	u[u_size] = '\0';
 	if (svar->flag_dash)
 		ft_fill_u_0(svar, utoa_var, u, (ssize_t) utoa_orig_size);
-	else	
+	else
 		ft_fill_u_1(svar, utoa_var, u, (ssize_t) utoa_orig_size);
 	u = ft_idu_handle_zero(svar, u, utoa_var[0]);
 	free(utoa_var);

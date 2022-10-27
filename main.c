@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/23 21:41:38 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/26 22:33:44 by ggiannit         ###   ########.fr       */
+/*   Created: 2022/10/27 10:07:12 by ggiannit          #+#    #+#             */
+/*   Updated: 2022/10/27 10:21:25 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,5 @@
 
 int	main(void)
 {
-//	char *null_str;
-//	char	*ll = "ciao";
-
-//	ciao = 42;
-//	null_str = NULL;
-//	printf("%lu\n", (long unsigned int)-1);
-	ft_printf("'%#x'", 0);
-	//ft_printf("%x\n", 0);
-//	ft_printf("%x\n", 42122);
-	//printf("ret %i", ciao);
-	//b = printf("%0002.u", 30);
-	//printf("\n");
-	//printf("a\t%i\nb\t%i\n", a, b);
-	//ft_printf("%u\n", (unsigned int)4294967295);
-	//ft_printf("This %p is even stranger", (void *)-1);
-	//ft_printf("This %p is even stranger", (void *)(long int)ciao);
-//	ft_printf("This %30p is even stranger\n", (void *)ll);
-//	printf("This %30p is even stranger\n", (void *)ll);
-//	ft_printf("%1.s\n", "21-school.ru");
-//	printf("%1.s\nlol", "21-school.ru");
-//	ft_printf("%s daje", null_str);
-	/*ft_printf("this is safe! %s %%\n", "amazing!");
-	ft_printf("this is safe!\n");
-	ft_printf("%c %c %10s\n", 'a','\0',"oki");
-        ft_printf("'%u'\n", 42);
-        ft_printf("'%8u' %-+6i \n", 42, -42);
-        ft_printf("'%.8u'\n", 42);
-        ft_printf("'%-4.8u'\n", 42);
-        ft_printf("'%-8.4u'\n", 42);
-        ft_printf("'%-.5u'\n", 42);
-        ft_printf("'%-+10i'\n", 42);
-	ft_printf("%-8.4u%i' %x %x%%%-10.6s\n %-10i %%%%%%%c", 12, 42, 42, 42, "daleee!", 1, 'C');
-	*/
+	ft_printf("%u", 10);
 }

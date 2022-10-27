@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 17:33:02 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/26 10:31:36 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/27 10:06:27 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	ft_fill_c(t_varpc *svar, char c_var, char *c, size_t c_size)
 	}
 }
 
-/* possibile errore se malloc con \0 ?  */
 char	*ft_prepare_c(t_varpc *svar, char c_var)
 {
 	char	*c;
@@ -95,15 +94,3 @@ char	*ft_prepare_s(t_varpc *svar, char *s_var)
 		free(s_var);
 	return (s);
 }
-
-/*char	*ft_testino(char *pc)
-{
-	t_varpc	*svar;
-
-	svar = ft_pcfinded(pc);
-	if (svar)
-	{
-		return (ft_prepare_p(svar, svar));
-	}
-	return (0);
-}*/

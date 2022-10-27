@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:37:59 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/26 17:12:51 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/27 12:57:27 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ size_t	ft_lu_digits(long unsigned int n)
 
 char	*ft_lutoa(long unsigned int n)
 {
-	size_t	len_s;
+	ssize_t	len_s;
 	char	*str_nbr;
 
-	str_nbr = (char *) malloc(((len_s = ft_lu_digits(n))) * sizeof(char));
+	len_s = ft_lu_digits(n);
+	str_nbr = (char *) malloc((len_s + 1) * sizeof(char));
 	if (str_nbr == NULL)
 		return (NULL);
 	str_nbr[len_s--] = '\0';
@@ -48,7 +49,7 @@ char	*ft_lutoa(long unsigned int n)
 
 size_t	ft_strlcpy_idu(t_varpc *svar, char *dst, const char *src, size_t size)
 {
-	size_t  k;
+	size_t	k;
 
 	if (svar->prec == 0 && src[0] == '0')
 	{
@@ -69,13 +70,8 @@ size_t	ft_strlcpy_idu(t_varpc *svar, char *dst, const char *src, size_t size)
 
 size_t	ft_strlcpy_x(t_varpc *svar, char *dst, const char *src, size_t size)
 {
-	size_t  k;
+	size_t	k;
 
-	/*if (svar->prec == 0 && src[0] == '0')
-	{
-		dst[svar->length] = '\0';
-		return (0);
-	}*/
 	(void)svar->ascii;
 	k = 0;
 	if (size == 0)

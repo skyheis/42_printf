@@ -6,23 +6,12 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 20:39:14 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/26 15:23:21 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/27 10:05:42 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-/*void	ft_svarprint(t_varpc *lol)
-{
-        printf("char %c\n", lol->ascii);
-        printf("len  %lu\n", lol->length);
-        printf("prec %li\n", lol->prec);
-        printf("32   %i\n", lol->flag_32);
-        printf("plus %i\n", lol->flag_plus);
-        printf("shar %i\n", lol->flag_sharp);
-        printf("dash %i\n", lol->flag_dash);
-        printf("zero %i\n", lol->flag_zero);
-}*/
 int	ft_fill_id_1_32(t_varpc *svar, char *itoa_var, char *id, ssize_t ia_len)
 {
 	int	k;
