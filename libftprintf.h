@@ -6,14 +6,13 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:29:39 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/27 12:44:57 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/28 09:56:24 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
 
-# include <stdio.h>
 # include <stdarg.h>
 # include <stdlib.h>
 # include <stdint.h>
