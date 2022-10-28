@@ -6,29 +6,34 @@
 #    By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 17:49:20 by ggiannit          #+#    #+#              #
-#    Updated: 2022/10/28 20:55:32 by ggiannit         ###   ########.fr        #
+#    Updated: 2022/10/28 20:09:21 by ggiannit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ####### NAME #########
 
-PRNAME = ft_printf
+PRNAME = libft
 
 ARNAME = libftprintf.a 
-BNUS = bonus
-ARDIR  =
+ARDIR  = ../
 
 NAME = $(addprefix $(ARDIR),$(ARNAME))
-INCLUDE = include
+INCLUDE = ../include
 
 ###### VARIABLE ######
 
 DIRSRCS = src/
 DIROBJS = obj/
 
-FLSRCS = ft_printf.c ft_struct.c ft_checkstring.c ft_getnewpc.c \
-	 ft_prepare_cs.c ft_prepare_id.c ft_prepare_p.c ft_prepare_u.c \
-	 ft_prepare_x.c ft_handle_zeros.c ft_put.c ft_lutoa.c	
+FLSRCS = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
+       ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_bzero.c \
+       ft_atoi.c ft_calloc.c ft_tolower.c ft_toupper.c \
+       ft_strchr.c ft_strdup.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c ft_strnstr.c ft_strrchr.c \
+       ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c \
+       ft_strmapi.c ft_striteri.c \
+       ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
+       ft_lstnew.c ft_lstadd_front.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c \
+       ft_lstsize.c ft_lstlast.c ft_lstiter.c ft_lstmap.c
 
 FLOBJS = ${FLSRCS:.c=.o}
 
@@ -67,7 +72,7 @@ $(DIROBJS)%.o: $(DIRSRCS)%.c
 
 ####### RULES ########
 
-all: libft ${NAME}
+all: ${NAME}
 
 ${NAME}: starting ${OBJS}
 	@echo ""
@@ -80,7 +85,7 @@ ${NAME}: starting ${OBJS}
 	@echo "$(YELLOW)Archive created with $(WHITE)${AR}$(YELLOW) as $(CYAN)${ARNAME}$(DEF_COLOR)"
 	@echo ""
 
-clean: libftclean
+clean:
 	@echo "$(WHITE)\"wait.. is $(CYAN)${PRNAME}$(WHITE) all trash? 🧹\" $(DEF_COLOR)"
 	@sleep 0.5
 	@${RM} ${OBJS} 
@@ -90,18 +95,8 @@ clean: libftclean
 fclean: clean
 	@echo "$(WHITE)\"...it's always as been 🚮\" $(DEF_COLOR)"
 	@sleep 0.5
-	@${RM} ${ARNAME} 
 	@echo "$(RED)..and $(CYAN)${ARNAME} $(RED)as been removed$(DEF_COLOR)"
 	@echo ""
-
-libft:
-	cd libft && ${MAKE}
-
-libftclean:
-	cd libft && ${MAKE} clean
-
-libftre:
-	cd libft && ${MAKE} re
 
 re: fclean all
 
@@ -109,5 +104,5 @@ starting:
 	@echo "$(WHITE)👷🦺\"Let's build somre real $(CYAN)${PRNAME}$(WHITE) sh3t!\"🔨🔧$(DEF_COLOR)"
 	@sleep 0.4
 
-.PHONY: all clean fclean re starting .c.o libft libftclean libftre
+.PHONY: all clean fclean re starting .c.o
 .SUFFIXES: .c .o 

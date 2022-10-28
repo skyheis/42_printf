@@ -6,7 +6,7 @@
 /*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:29:39 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/10/28 09:56:24 by ggiannit         ###   ########.fr       */
+/*   Updated: 2022/10/28 19:51:54 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <stdint.h>
 # include <unistd.h>
-# include "libft/libft.h"
+# include "libft.h"
 
 typedef struct s_varpc
 {
